@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday My Queen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to top right, #2c003e, #ffdde1);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    #startScreen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #2c003e;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+      text-align: center;
+    }
+
+    #startScreen h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    #startScreen button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background: #ff8fa3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .container {
+      text-align: center;
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      display: none; /* hidden until user clicks */
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: #ff8fa3;
+      animation: fadeInDown 2s ease-out;
+    }
+
+    .date-box {
+      background: rgba(255, 255, 255, 0.1);
+      display: inline-block;
+      padding: 0.5rem 2rem;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 1rem 0 2rem 0;
+      border: 2px dashed #ff99bb;
+    }
+
+    .photo {
+      width: 90%;
+      max-width: 320px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+      margin: 2rem auto;
+      display: block;
+    }
+
+    p.message {
+      font-size: 1.3rem;
+      margin: 2rem auto;
+      max-width: 700px;
+      line-height: 1.8;
+      font-weight: 300;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      font-size: 1.5rem;
+      color: #ffb6c1;
+      font-family: 'Great Vibes', cursive;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/hearts.png');
+      opacity: 0.08;
+      z-index: 0;
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff80ab, 0 0 10px #ff4081; }
+      to { text-shadow: 0 0 20px #ff4081, 0 0 40px #ff80ab; }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="startScreen">
+    <h2>Click to Start the Surprise 💝</h2>
+    <button onclick="startSurprise()">Start</button>
+  </div>
+
+  <div class="hearts"></div>
+
+  <div class="container" id="mainContent">
+    <h1>Happy Birthday, My Queen Natasha 👑</h1>
+    <div class="date-box">June 15, 2006 — 19th Birthday</div>
+
+    <img class="photo" src="https://images.unsplash.com/photo-1601268588577-319223ba7cb3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Her Photo">
+
+    <p class="message">
+      Happy Birthday, My Love ❤️. I Love U Jaan❤️, I can't express my Love from my words.
+      Aaj ka din mere liye sabse khaas hai, kyun ke is din meri Jaan paida hui thi. Tum meri har khushi ki wajah ho. Tumhari muskurahat meri duniya hai.
+      May your day be as beautiful and magical as you are.<br>
+      I love you — always.<br>
+      Tmhara Irtaza 💖
+    </p>
+
+    <div class="footer">
+      With love, Irtaza ❤️
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="assets/oye.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    function startSurprise() {
+      const audio = document.getElementById("bgMusic");
+      const container = document.getElementById("mainContent");
+      const screen = document.getElementById("startScreen");
+
+      audio.play().catch(e => console.log("Audio error: ", e));
+      screen.style.display = "none";
+      container.style.display = "block";
+    }
+  </script>
+</body>
+</html>
